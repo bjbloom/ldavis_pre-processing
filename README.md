@@ -1,0 +1,7 @@
+## Tidy pre-processing for `lda` package
+
+NLP in R is a little complicated because there are few standard agreement on inputs and outputs to NLP models like topic models (typically Latent Direchlet Allocation). The two main packages for implementing LDA are `topicmodels`, which use a typical document-term matrix (generated out of the `tm` package) as an input, or the `lda` package, which requires a more custom set of lists as inputs. Neither are particularly easy to work with and manipulate.
+
+The `tidytext` package provides a much tidier (in terms of the `tidyverse` approach to R) way of generating the inputs and extracting the outputs of the `topicmodels` package. Unfortunately, my favorite R visualization package, [`LDAVis`](https://github.com/cpsievert/LDAvis), uses the `lda` package outputs for the inputs for its JSON that generate the visualization. I have yet to find a simple way for translating the output from `tidytext`/`topicmodels` into the required list for `LDAVis`.
+
+However, I have found a slightly "tidier" way of doing the pre-processing for the list of matrices required for the `lda` package. This script is simply a re-factoring of the steps used in the `LDAVis` vignette/example [here](https://ldavis.cpsievert.me/reviews/reviews.html).
